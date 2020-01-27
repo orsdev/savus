@@ -1,4 +1,6 @@
 .footer {
+ position: relative;
+ z-index: 1;
  background: transparentize($white , .1);
  padding: 30px 10px;
  width: 100%;

@@ -19,22 +19,22 @@
 
   &__nav {
     background: $white;
-    padding: 20px 10px;
+    padding: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     &-logo {
-      width: 150px;
-      font-family: cursive;
-      text-decoration: none;
-      font-size: 3rem;
-      color: black;
-      margin: 0;
+      width: 100px;
+
+      img {
+        width: 70px;
+        height: 70px;
+      }
     }
 
     &-link {
-      width: calc(100% - 150px);
+      width: calc(100% - 100px);
       padding: 20px 5px;
     }
 
@@ -64,14 +64,14 @@
     color: $white;
     position: absolute;
     top: 40%;
-   
-    .main-header strong{
-     color: $red;
-     text-decoration: overline;
-   }
 
-   .para {
-    width: 500px;
-   }
+    .main-header strong {
+      color: $red;
+      text-decoration: overline;
+    }
+
+    .para {
+      width: 500px;
+    }
   }
 }

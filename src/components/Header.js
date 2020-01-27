@@ -1,10 +1,13 @@
 import React from 'react';
+import Logo from '../img/logo.png';
 
 const Header = () => {
  return(
   <header className="header">
    <nav className="header__nav">
-    <a href="#" className="header__nav-logo">Savus</a>
+    <a href="#" className="header__nav-logo">
+     <img src={Logo} alt="savus-logo" />
+    </a>
     <div className="header__nav-link">
      <ul>
      <li>Login</li>

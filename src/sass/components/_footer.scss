@@ -1,0 +1,31 @@
+.footer {
+ background: transparentize($white , .1);
+ padding: 30px 10px;
+ width: 100%;
+ margin-top: 100px;
+ text-align: center;
+
+ a {
+  display: block;
+  margin-bottom: 5px;
+  width: 130px;
+  margin-left: auto;
+  margin-right: auto;
+
+  img {
+   width: 100px;
+   height: 100px;
+   object-fit: cover;
+  }
+ }
+
+ small {
+  color: grey;
+   strong {
+    color: $red !important;
+    padding-right: 5px;
+    padding-left: 5px;
+   }
+ }
+ 
+}

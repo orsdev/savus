@@ -77,4 +77,36 @@
   width: 500px;
 }
 
+.about {
+  width: 100%;
+  text-align: center;
+  padding-top: 60px;
+  color: white;
+}
+.about hr {
+  border: 3px solid red;
+  width: 50px;
+  margin: auto;
+}
+.about p {
+  color: black;
+  transform: skew(-20deg);
+  -webkit-transform: skew(-20deg);
+  -moz-transform: skew(-20deg);
+  -ms-transform: skew(-20deg);
+  -o-transform: skew(-20deg);
+}
+.about__text {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px 25px;
+  width: 1000px;
+  margin: auto;
+  margin-top: 40px;
+  transform: skew(20deg);
+  -webkit-transform: skew(20deg);
+  -moz-transform: skew(20deg);
+  -ms-transform: skew(20deg);
+  -o-transform: skew(20deg);
+}
+
 /*# sourceMappingURL=style.css.map */

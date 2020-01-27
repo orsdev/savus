@@ -1,17 +1,13 @@
 import React ,{ Component } from 'react';
+import Layout from './components/Layout';
+import Savus from './container/Savus';
 
-class App extends Component {
- constructor(props){
-  super(props);
- }
-
- render(){
+const App = () => {
   return(
-   <div className="app">
-    <h1> Hello, my name Khan. I am not a criminal </h1>
-   </div>
+   <Layout>
+    <Savus />
+   </Layout>
   )
- }
 }
 
 export default App;

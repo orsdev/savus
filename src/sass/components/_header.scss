@@ -1,0 +1,77 @@
+@import "./variables";
+
+.header {
+  width: 100%;
+  height: 650px;
+  position: relative;
+  background-image: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url(../img/hero.jpg);
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 0 20px;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 87%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 87%, 0% 100%);
+
+  &__nav {
+    background: $white;
+    padding: 20px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &-logo {
+      width: 150px;
+      font-family: cursive;
+      text-decoration: none;
+      font-size: 3rem;
+      color: black;
+      margin: 0;
+    }
+
+    &-link {
+      width: calc(100% - 150px);
+      padding: 20px 5px;
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      align-items: center;
+      justify-content: flex-end;
+      cursor: pointer;
+
+      li {
+        font-size: 1.1rem;
+        font-weight: bold;
+        display: inline-block;
+        opacity: 0.9;
+        width: 80px;
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+
+  &__text {
+    color: $white;
+    position: absolute;
+    top: 40%;
+   
+    .main-header strong{
+     color: $red;
+     text-decoration: overline;
+   }
+
+   .para {
+    width: 500px;
+   }
+  }
+}

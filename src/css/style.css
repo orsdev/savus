@@ -1,5 +1,80 @@
+.main-header {
+  font-size: 3rem;
+}
+
+.sub-header {
+  font-size: 2.5rem;
+}
+
+.para {
+  font-size: 1rem;
+}
+
 .layout {
   width: 100%;
+  background-image: linear-gradient(to left top, #051937, #091c34, #0f1e31, #15202e, #1b222a, #1b2026, #1c1f22, #1c1d1e, #171818, #121212, #0a0a0a, #000000);
+}
+
+.header {
+  width: 100%;
+  height: 650px;
+  position: relative;
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/hero.jpg);
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 0 20px;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 87%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 87%, 0% 100%);
+}
+.header__nav {
+  background: white;
+  padding: 20px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header__nav-logo {
+  width: 150px;
+  font-family: cursive;
+  text-decoration: none;
+  font-size: 3rem;
+  color: black;
+  margin: 0;
+}
+.header__nav-link {
+  width: calc(100% - 150px);
+  padding: 20px 5px;
+}
+.header__nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  align-items: center;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+.header__nav ul li {
+  font-size: 1.1rem;
+  font-weight: bold;
+  display: inline-block;
+  opacity: 0.9;
+  width: 80px;
+}
+.header__nav ul li:hover {
+  opacity: 0.8;
+}
+.header__text {
+  color: white;
+  position: absolute;
+  top: 40%;
+}
+.header__text .main-header strong {
+  color: red;
+  text-decoration: overline;
+}
+.header__text .para {
+  width: 500px;
 }
 
 /*# sourceMappingURL=style.css.map */

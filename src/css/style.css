@@ -27,7 +27,7 @@
 
 .close {
   position: absolute;
-  top: 6px;
+  top: 2px;
   right: 10px;
   font-weight: bold;
   color: white;
@@ -200,11 +200,17 @@
   position: relative;
   z-index: 10;
 }
-.login-container h3 {
+.login-container-header {
   color: white;
   background: red;
   padding: 10px 5px;
   text-align: center;
+}
+.login-container-header span {
+  display: block;
+}
+.login-container-header h3 {
+  margin-top: 15px;
 }
 .login-container form {
   background: white;
@@ -250,11 +256,17 @@
   margin-top: 20px;
   position: relative;
 }
-.signup-container h3 {
+.signup-container-header {
   color: white;
   background: red;
   padding: 10px 5px;
   text-align: center;
+}
+.signup-container-header span {
+  display: block;
+}
+.signup-container-header h3 {
+  margin-top: 15px;
 }
 
 form {
@@ -333,6 +345,17 @@ form input[type=submit]:hover {
 
   .header .para {
     width: 90% !important;
+  }
+}
+@media screen and (max-width: 500px) {
+  .login-container,
+.signup-container {
+    outline: 1px solid red;
+    width: 95% !important;
+  }
+
+  .sub-header {
+    font-size: 1.6rem;
   }
 }
 

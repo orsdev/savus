@@ -6,8 +6,10 @@ const LoginPopup = (props) => {
   <Fragment>
    <Backdrop closePopup={ props.closePopup }>
     <div className="login-container">
+    <header className="login-container-header">
      <h3 className="sub-header">Login</h3>
      <span className="closelogin close" onClick={ props.closePopup }>X</span>
+     </header>
      <form>
       <div className="form-group">
        <input type="email" name="login-email" placeholder="Email" required />

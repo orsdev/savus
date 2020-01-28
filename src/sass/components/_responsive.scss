@@ -38,3 +38,15 @@ p {
   }
  }
 }
+
+@media screen and (max-width: 500px) {
+ .login-container,
+ .signup-container {
+    outline: 1px solid red;
+    width: 95% !important;
+ }
+
+ .sub-header {
+  font-size: 1.6rem;
+ }
+}

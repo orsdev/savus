@@ -6,8 +6,10 @@ const SignupPopup = (props) => {
   <Fragment>
    <Backdrop closePopup={ props.closePopup }>
     <div className="signup-container">
+     <header className="signup-container-header">
      <h3 className="sub-header">Create an Account</h3>
      <span className="closesignup close" onClick={ props.closePopup }>X</span>
+     </header>
      <form>
       <div className="form-group">
        <input type="email" name="signup-email" placeholder="Email" required />

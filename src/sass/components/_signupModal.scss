@@ -6,11 +6,19 @@
  margin-top: 20px;
  position: relative;
 
- h3 {
+ &-header {
    color: $white;
    background: $red;
    padding: 10px 5px;
    text-align: center;
+
+   span {
+    display: block;
+   }
+
+   h3 {
+    margin-top: 15px;
+   }
  }
  
 }

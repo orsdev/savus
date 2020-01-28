@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import About from '../components/About';
 import Footer from '../components/Footer';
 import LoginModal from '../components/LoginModal';
+import SignupModal from '../components/SignupModal';
 
 import '../css/style.css';
 

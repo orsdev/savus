@@ -18,7 +18,7 @@
   width: 100%;
   z-index: 5;
   background-color: rgba(41, 48, 59, 0.55);
-  // display: none;
+  overflow: scroll;
 }
 
 .close {
@@ -61,4 +61,8 @@
       color: lighten($darkblue, 30%);
     }
   }
+}
+
+.noScroll {
+ overflow: hidden;
 }

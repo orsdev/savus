@@ -1,20 +1,64 @@
+@import "./variables";
+
 .main-header {
- font-size: 3rem;
+  font-size: 3rem;
 }
 
 .sub-header {
- font-size: 2.5rem;
+  font-size: 2.5rem;
 }
 
 .para {
- font-size: 1rem;
+  font-size: 1rem;
 }
 
 .backdrop {
- position: fixed;
- height: 100vh;
- width: 100%;
- z-index: 5;
- background-color: rgba(41, 48, 59, 0.55);
- // display: none;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  z-index: 5;
+  background-color: rgba(41, 48, 59, 0.55);
+  // display: none;
+}
+
+.close {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  font-weight: bold;
+  color: $white;
+  font-size: 1.4rem;
+  cursor: pointer;
+
+  &:hover {
+    color: darken($white, 5%);
+  }
+
+  &:active {
+    font-size: 1.45rem;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+  }
+}
+
+.toggleModal {
+  margin-top: 20px;
+
+  a {
+    font-size: 1.1rem;
+    font-style: italic;
+    text-decoration: none;
+    color: $darkblue;
+
+    strong {
+      text-decoration: underline;
+    }
+
+    &:hover {
+      color: lighten($darkblue, 30%);
+    }
+  }
 }

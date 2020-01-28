@@ -1,3 +1,9 @@
+.layout {
+  position: relative;
+  width: 100%;
+  background-image: linear-gradient(to left top, #051937, #091c34, #0f1e31, #15202e, #1b222a, #1b2026, #1c1f22, #1c1d1e, #171818, #121212, #0a0a0a, #000000);
+}
+
 .main-header {
   font-size: 3rem;
 }
@@ -18,10 +24,41 @@
   background-color: rgba(41, 48, 59, 0.55);
 }
 
-.layout {
-  position: relative;
-  width: 100%;
-  background-image: linear-gradient(to left top, #051937, #091c34, #0f1e31, #15202e, #1b222a, #1b2026, #1c1f22, #1c1d1e, #171818, #121212, #0a0a0a, #000000);
+.close {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  font-weight: bold;
+  color: white;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+.close:hover {
+  color: #f2f2f2;
+}
+.close:active {
+  font-size: 1.45rem;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+
+.toggleModal {
+  margin-top: 20px;
+}
+.toggleModal a {
+  font-size: 1.1rem;
+  font-style: italic;
+  text-decoration: none;
+  color: #051937;
+}
+.toggleModal a strong {
+  text-decoration: underline;
+}
+.toggleModal a:hover {
+  color: #1259c3;
 }
 
 .header {
@@ -152,7 +189,6 @@
 }
 
 .login-container {
-  position: relative;
   width: 450px;
   position: absolute;
   top: 30%;
@@ -167,30 +203,11 @@
   padding: 10px 5px;
   text-align: center;
 }
-.login-container .close {
-  position: absolute;
-  top: 6px;
-  right: 10px;
-  font-weight: bold;
-  color: white;
-  font-size: 1.4rem;
-  cursor: pointer;
-}
-.login-container .close:hover {
-  color: #f2f2f2;
-}
-.login-container .close:active {
-  font-size: 1.45rem;
-  transition: 0.3s;
-  -webkit-transition: 0.3s;
-  -moz-transition: 0.3s;
-  -ms-transition: 0.3s;
-  -o-transition: 0.3s;
-}
 .login-container form {
   background: white;
   text-align: center;
   padding-top: 15px;
+  padding-bottom: 15px;
 }
 .login-container form input:not([type=submit]) {
   border: none;

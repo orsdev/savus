@@ -350,7 +350,6 @@ form input[type=submit]:hover {
 @media screen and (max-width: 500px) {
   .login-container,
 .signup-container {
-    outline: 1px solid red;
     width: 95% !important;
   }
 

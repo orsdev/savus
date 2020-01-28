@@ -10,40 +10,56 @@ import '../css/style.css';
 class Savus extends Component {
 
  state = {
-   loginPopup: null,
-   signupPopup: null,
+  loginPopup: null,
+  signupPopup: null,
+  toggleClass: true
  }
 
-toggleLoginPopup = () => {
+ componentDidUpdate(prevProps, prevState) {
+  /*
+  add a class to body element if toggleClass state changes
+  */
+  if (prevState.toggleClass !== this.state.toggleClass) {
+    document.body.classList.toggle('noScroll');
+  }
+ }
+ 
+ toggleLoginPopup = () => {
+  let toggle = !this.state.toggleClass;
   this.setState({
    loginPopup: true,
-   signupPopup: null
+   signupPopup: null,
+   toggleClass: toggle
   })
  }
 
  toggleSignupPopup = () => {
+  let toggle = !this.state.toggleClass;
   this.setState({
    signupPopup: true,
    loginPopup: null,
-  })
+   toggleClass: toggle
+  });
  }
 
  closePopup = (e) => {
   let target = e.target;
- 
   /*
   update state when backdrop or when
   closed button is clicked
   */
-  if(target.classList.contains('backdrop') ||
-  target.classList.contains('close')){
-  this.setState({
-   // closePopup: true,
-   loginPopup: null,
-   signupPopup: null
-  });
- }
-  
+  if (target.classList.contains('backdrop') ||
+   target.classList.contains('close')) {
+
+   let toggle = !this.state.toggleClass;
+
+   this.setState({
+    // closePopup: true,
+    loginPopup: null,
+    signupPopup: null,
+    toggleClass: toggle
+   });
+  }
  }
 
  render() {
@@ -52,23 +68,24 @@ toggleLoginPopup = () => {
   variables will later assigned 
   LoginPopup & SignupPopup components
   */
-  let popupLogin , popupSignup;
+  let popupLogin, popupSignup;
 
   //show login popup if true
-  if(this.state.loginPopup){
-    popupLogin = (
-    <LoginPopup 
-    closePopup={ this.closePopup }
-    toggleSignupPopup={ this.toggleSignupPopup }/>
-    );
+  if (this.state.loginPopup) {
+   popupLogin = (
+    <LoginPopup
+     closePopup={this.closePopup}
+     toggleSignupPopup={this.toggleSignupPopup} />
+   );
   }
 
-    //show sigup popup if true
-  if(this.state.signupPopup){
+
+  //show sigup popup if true
+  if (this.state.signupPopup) {
    popupSignup = (
-   <SignupPopup 
-   closePopup={ this.closePopup }
-   toggleLoginPopup={ this.toggleLoginPopup }/>
+    <SignupPopup
+     closePopup={this.closePopup}
+     toggleLoginPopup={this.toggleLoginPopup} />
    );
   }
 
@@ -76,9 +93,9 @@ toggleLoginPopup = () => {
    <Fragment>
     {popupLogin}
     {popupSignup}
-    <Header 
-    toggleLoginPopup={ this.toggleLoginPopup }
-    toggleSignupPopup={ this.toggleSignupPopup }/>
+    <Header
+     toggleLoginPopup={this.toggleLoginPopup}
+     toggleSignupPopup={this.toggleSignupPopup} />
     <About />
     <Footer />
    </Fragment>

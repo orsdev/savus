@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react'
 import Backdrop from '../UI/Backdrop';
 
-const SignupModal = (props) => {
+const SignupPopup = (props) => {
  return (
   <Fragment>
-   <Backdrop>
+   <Backdrop closePopup={ props.closePopup }>
     <div className="signup-container">
      <h3 className="sub-header">Create an Account</h3>
-     <span className="closesignup close">X</span>
+     <span className="closesignup close" onClick={ props.closePopup }>X</span>
      <form>
       <div className="form-group">
        <input type="email" name="signup-email" placeholder="Email" required />
@@ -37,7 +37,9 @@ const SignupModal = (props) => {
        <input type="submit" name="signup-submit" value="Register" />
       </div>
       <div className="toggleModal">
-       <a href="#" id="login" className="login">
+       <a href="#" id="login" 
+       className="login"
+       onClick= { props.toggleLoginPopup }>
        Already have an account?<strong> Sign in here!</strong>
       </a>
       </div>
@@ -49,4 +51,4 @@ const SignupModal = (props) => {
  )
 }
 
-export default SignupModal;
+export default SignupPopup;

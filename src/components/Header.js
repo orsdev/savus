@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from '../img/logo.png';
 
-const Header = () => {
+const Header = (props) => {
  return(
   <header className="header">
    <nav className="header__nav">
@@ -10,8 +10,8 @@ const Header = () => {
     </a>
     <div className="header__nav-link">
      <ul>
-     <li>Login</li>
-     <li>Sign up</li>
+     <li onClick={ props.toggleLoginPopup }>Login</li>
+     <li onClick={ props. toggleSignupPopup }>Sign up</li>
      </ul>
     </div>
    </nav>

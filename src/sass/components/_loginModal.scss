@@ -1,11 +1,9 @@
 .login-container {
   width: 450px;
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate3d(-50%, -50%, 0);
-  -webkit-transform: translate3d(-50%, -50%, 0);
-  -moz-transform: translate3d(-50%, -50%, 0);
+  margin: auto;
+  margin-top: 20px;
+  position: relative;
+  z-index: 10;
 
   h3 {
     color: $white;
@@ -13,7 +11,7 @@
     padding: 10px 5px;
     text-align: center;
   }
-  
+
   form {
     background: $white;
     text-align: center;
@@ -31,30 +29,29 @@
       &:focus {
         outline: none;
         box-shadow: none;
-        background: rgba(0,0,0,.1);
+        background: rgba(0, 0, 0, 0.1);
       }
 
       &:hover::-webkit-input-placeholder {
-       padding-left: 2px;
-       transition: .3s;
-       -webkit-transition: .3s;
-       -moz-transition: .3s;
-       -ms-transition: .3s;
-       -o-transition: .3s;
-     }
-     
+        padding-left: 2px;
+        transition: 0.3s;
+        -webkit-transition: 0.3s;
+        -moz-transition: 0.3s;
+        -ms-transition: 0.3s;
+        -o-transition: 0.3s;
+      }
     }
 
-    input[type=submit] {
-     width: 100%;
-     color: white;
-     padding: 15px 5px;
-     font-size: 1.4rem;
-     background: $darkblue;
+    input[type="submit"] {
+      width: 100%;
+      color: white;
+      padding: 15px 5px;
+      font-size: 1.4rem;
+      background: $darkblue;
 
-     &:hover {
-      background: lighten($darkblue , 5%);
-     }
+      &:hover {
+        background: lighten($darkblue, 5%);
+      }
     }
   }
 }

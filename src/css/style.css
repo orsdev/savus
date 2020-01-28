@@ -166,6 +166,7 @@
 .footer {
   position: relative;
   z-index: 1;
+  bottom: 0;
   background: rgba(255, 255, 255, 0.9);
   padding: 30px 10px;
   width: 100%;
@@ -268,15 +269,14 @@
 .signup-container-header h3 {
   margin-top: 15px;
 }
-
-form {
+.signup-container form {
   background: white;
   text-align: center;
   padding-top: 15px;
   padding-bottom: 15px;
   margin-bottom: 30px;
 }
-form input:not([type=submit]) {
+.signup-container form input:not([type=submit]) {
   border: none;
   border-bottom: 1px solid black;
   height: 50px;
@@ -284,12 +284,12 @@ form input:not([type=submit]) {
   padding: 5px 9px;
   margin-bottom: 30px;
 }
-form input:not([type=submit]):focus {
+.signup-container form input:not([type=submit]):focus {
   outline: none;
   box-shadow: none;
   background: rgba(0, 0, 0, 0.1);
 }
-form input:not([type=submit]):hover::-webkit-input-placeholder {
+.signup-container form input:not([type=submit]):hover::-webkit-input-placeholder {
   padding-left: 2px;
   transition: 0.3s;
   -webkit-transition: 0.3s;
@@ -297,20 +297,95 @@ form input:not([type=submit]):hover::-webkit-input-placeholder {
   -ms-transition: 0.3s;
   -o-transition: 0.3s;
 }
-form input[type=submit] {
+.signup-container form input[type=submit] {
   width: 100%;
   color: white;
   padding: 15px 5px;
   font-size: 1.4rem;
   background: #051937;
 }
-form input[type=submit]:hover {
+.signup-container form input[type=submit]:hover {
   background: #07244e;
 }
-
-.security h4 {
+.signup-container .security h4 {
   margin-bottom: 15px;
   font-size: 1.2rem;
+}
+
+.profile {
+  position: relative;
+}
+.profile__bg {
+  position: relative;
+  background: #051937;
+  height: 300px;
+}
+.profile__bg h1 {
+  color: white;
+  -webkit-text-fill-color: black;
+  -webkit-text-stroke: 2px white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  -moz-transform: translate3d(-50%, -50%, 0);
+}
+.profile__details {
+  position: relative;
+  top: -20px;
+  padding: 0px 60px;
+  padding-bottom: 30px;
+  width: 99%;
+  margin: auto;
+}
+.profile__details-pic {
+  text-align: center;
+}
+.profile__details-pic img {
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border: 10px solid white;
+}
+.profile__user {
+  padding: 10px;
+}
+.profile__user .form-group {
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 18px;
+}
+.profile__user .label {
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  width: 150px;
+}
+.profile__user .formval {
+  width: calc(100% - 150px);
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  padding-bottom: 6px;
+  border-bottom: 1px solid white;
+}
+.profile__user button {
+  margin-top: 10px;
+  width: 100%;
+  color: #051937;
+  padding: 15px 5px;
+  font-size: 1.4rem;
+  background: white;
+}
+.profile__user button:hover {
+  color: white;
+  background: #07244e;
 }
 
 @media screen and (max-width: 1050px) {
@@ -346,6 +421,10 @@ form input[type=submit]:hover {
   .header .para {
     width: 90% !important;
   }
+
+  .profile__details {
+    padding: 0 10px;
+  }
 }
 @media screen and (max-width: 500px) {
   .login-container,
@@ -355,6 +434,21 @@ form input[type=submit]:hover {
 
   .sub-header {
     font-size: 1.6rem;
+  }
+
+  .profile__details img {
+    width: 150px;
+    height: 150px;
+  }
+  .profile__details .label {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .profile__details .form-group {
+    flex-direction: column;
+  }
+  .profile__details .formval {
+    width: 100%;
   }
 }
 

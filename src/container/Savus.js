@@ -4,7 +4,7 @@ import About from '../components/About';
 import Footer from '../components/Footer';
 import LoginPopup from '../components/LoginPopup';
 import SignupPopup from '../components/SignupPopup';
-
+import Profile from '../components/Profile';
 import '../css/style.css';
 
 class Savus extends Component {
@@ -23,7 +23,7 @@ class Savus extends Component {
     document.body.classList.toggle('noScroll');
   }
  }
- 
+
  toggleLoginPopup = () => {
   let toggle = !this.state.toggleClass;
   this.setState({

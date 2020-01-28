@@ -1,51 +1,75 @@
 @media screen and (max-width: 1050px) {
- .about {
-  padding-right: 10px;
-  padding-left: 10px;
-  
-  &__text{
-  width: 90% !important;
-  transform: skew(4deg);
-  -webkit-transform: skew(4deg);
-  -moz-transform: skew(4deg);
-  -ms-transform: skew(4deg);
-  -o-transform: skew(4deg);
-}
+  .about {
+    padding-right: 10px;
+    padding-left: 10px;
 
-p {
- transform: skew(-4deg);
- -webkit-transform: skew(-4deg);
- -moz-transform: skew(-4deg);
- -ms-transform: skew(-4deg);
- -o-transform: skew(-4deg);
-}
- }
+    &__text {
+      width: 90% !important;
+      transform: skew(4deg);
+      -webkit-transform: skew(4deg);
+      -moz-transform: skew(4deg);
+      -ms-transform: skew(4deg);
+      -o-transform: skew(4deg);
+    }
+
+    p {
+      transform: skew(-4deg);
+      -webkit-transform: skew(-4deg);
+      -moz-transform: skew(-4deg);
+      -ms-transform: skew(-4deg);
+      -o-transform: skew(-4deg);
+    }
+  }
 }
 
 @media screen and (max-width: 600px) {
-
- .main-header {
-  font-size: 2.5rem;
- }
-
- .sub-header {
-  font-size: 2rem;
- }
-
- .header{
-  .para {
-   width: 90% !important;
+  .main-header {
+    font-size: 2.5rem;
   }
- }
+
+  .sub-header {
+    font-size: 2rem;
+  }
+
+  .header {
+    .para {
+      width: 90% !important;
+    }
+  }
+
+  .profile__details {
+   padding: 0 10px;
+  }
 }
 
 @media screen and (max-width: 500px) {
- .login-container,
- .signup-container {
+  .login-container,
+  .signup-container {
     width: 95% !important;
- }
+  }
 
- .sub-header {
-  font-size: 1.6rem;
+  .sub-header {
+    font-size: 1.6rem;
+  }
+
+  .profile__details {
+
+     img {
+       width: 150px;
+       height: 150px;
+     }
+
+     .label {
+      width: 100%;
+      margin-bottom: 10px;
+     }
+
+     .form-group {
+      flex-direction: column;
+     }
+
+     .formval {
+      width: 100%;
+     }
  }
 }

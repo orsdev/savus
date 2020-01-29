@@ -304,6 +304,9 @@
   font-size: 1.4rem;
   background: #051937;
 }
+.signup-container form input[type=submit]:active {
+  outline: none;
+}
 .signup-container form input[type=submit]:hover {
   background: #07244e;
 }
@@ -450,6 +453,14 @@
   .profile__details .formval {
     width: 100%;
   }
+}
+.error-message {
+  color: red;
+  margin-top: -25px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-align: left;
+  margin-left: 25px;
 }
 
 /*# sourceMappingURL=style.css.map */

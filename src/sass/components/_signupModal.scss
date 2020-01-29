@@ -59,6 +59,10 @@
    padding: 15px 5px;
    font-size: 1.4rem;
    background: $darkblue;
+
+   &:active {
+    outline: none;
+   }
  
    &:hover {
     background: lighten($darkblue , 5%);

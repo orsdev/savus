@@ -7,3 +7,12 @@
 @import 'components/signupModal';
 @import 'components/profile';
 @import 'components/responsive';
+
+.error-message {
+ color: red;
+ margin-top: -25px;
+ font-weight: bold;
+ font-size: .9rem;
+ text-align: left;
+ margin-left: 25px;
+}

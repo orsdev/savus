@@ -3,23 +3,22 @@
   margin: auto;
   margin-top: 20px;
   position: relative;
-  z-index: 10;
 
   &-header {
-   color: $white;
-   background: $red;
-   padding: 10px 5px;
-   text-align: center;
+    color: $white;
+    background: $red;
+    padding: 10px 5px;
+    text-align: center;
 
-   span {
-    display: block;
-   }
+    span {
+      display: block;
+    }
 
-   h3 {
-    margin-top: 15px;
-   }
- }
- 
+    h3 {
+      margin-top: 15px;
+    }
+  }
+
   form {
     background: $white;
     text-align: center;

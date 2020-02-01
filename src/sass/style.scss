@@ -1,18 +1,19 @@
-@import 'components/layout';
-@import 'components/utilities';
-@import 'components/header';
-@import 'components/about';
-@import 'components/footer';
-@import 'components/loginPopup';
-@import 'components/signupPopup';
-@import 'components/profile';
-@import 'components/responsive';
+@import "components/layout";
+@import "components/utilities";
+@import "components/header";
+@import "components/about";
+@import "components/footer";
+@import "components/loginPopup";
+@import "components/signupPopup";
+@import "components/profile";
+@import "components/spinner";
+@import "components/responsive";
 
 .error-message {
- color: red;
- margin-top: -25px;
- font-weight: bold;
- font-size: .9rem;
- text-align: left;
- margin-left: 25px;
+  color: red;
+  margin-top: -25px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-align: left;
+  margin-left: 25px;
 }

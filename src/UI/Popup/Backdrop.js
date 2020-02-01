@@ -2,7 +2,9 @@ import React from 'react';
 
 const Backdrop = (props) => {
  return (
-  <div className="backdrop" onClick={ props.closePopup }>
+  <div 
+  className="backdrop" 
+  onClick={ props.backdropClosePopup }>
    {props.children}
   </div>
  )

@@ -55,13 +55,13 @@ const validationShema = Yup.object().shape({
 const SignupPopup = (props) => {
 
  const [error, updateError] = useState(null);
+ const [fileError, updateFileError] = useState(true);
  const [isSuccessful, updateisSuccessful] = useState(null);
  const [spinner, updateSpinner] = useState(null);
  const [message, updateMessage] = useState('');
  const [image, updateImage] = useState(null);
 
-
-
+ //registration function
  async function onRegister(values, file) {
   try {
 
@@ -75,7 +75,7 @@ const SignupPopup = (props) => {
      updateSpinner(null);
      updateMessage('Account created successfully. Login to see your profile');
 
-    }).catch(function () {
+    }).catch(function (error) {
      //update state
      updateError(error.message);
      ;
@@ -87,9 +87,17 @@ const SignupPopup = (props) => {
   }
  }
 
+ //listen for onchange input[file] event
  const changeHandler = (e) => {
+
   if (e.target.files) {
+   //get dom element
+   const toggleError = document.querySelector('.file-error');
+   //hide error
+   toggleError.style.display = 'none';
+
    updateImage(e.target.files[0]);
+   updateFileError(false);
   }
  }
 
@@ -145,10 +153,22 @@ const SignupPopup = (props) => {
      validationSchema={validationShema}
      onSubmit={(values) => {
 
+      //get dom element
+      const toggleError = document.querySelector('.file-error');
+
+      if (fileError) {
+       //show error
+       toggleError.style.display = 'block';
+      };
+
       //call function
-      onRegister(values, image);
-      //updates state
-      updateSpinner(true);
+      if (image) {
+       //hide error
+       toggleError.style.display = 'none';
+       onRegister(values, image);
+       //updates state
+       updateSpinner(true);
+      }
 
      }} >
      {({
@@ -214,6 +234,7 @@ const SignupPopup = (props) => {
           type="password"
           name="password"
           placeholder="Password"
+          value={values.password}
           onChange={handleChange}
           onBlur={handleBlur} />
          <YupError
@@ -221,11 +242,14 @@ const SignupPopup = (props) => {
           message={errors.password} />
         </div>
         <div className="form-group">
+         <label htmlFor="picture">Upload your picture</label>
          <input
           type="file"
           name="picture"
           onChange={changeHandler}
+          onBlur={handleBlur}
          />
+         <p className="file-error"> Upload a picture</p>
         </div>
         <div className="form-group security">
          <h4>Security Questions</h4>

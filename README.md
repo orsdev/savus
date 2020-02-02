@@ -22,7 +22,7 @@ Install create-react-app
 
 When you are done installing create-react-app,
 
-delete all the files except \*node_module folder
+delete all the files except node_module folder
 
 copy all files from the cloned repository and paste into the - create-react-app folder(my-app)
 

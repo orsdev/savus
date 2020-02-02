@@ -1,24 +1,63 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import MessagePopup from '../UI/Popup/MessagePopup';
+import SpinnerBackdrop from '../UI/Popup/SpinnerBackdrop';
+import Spinner from '../UI/Spinner/Spinner';
+
 import Logo from '../img/logo.png';
 import firebase from '../config/fbConfig';
+import UpdateProfile from './UpdateProfile';
 
 const Profile = (props) => {
 
- const [email, updateEmail] = useState('');
+
  const [userId, updateUserId] = useState(null);
  const [label, updateLabel] = useState(null);
  const [value, updateValue] = useState(null);
  const [imageLink, updateImageLink] = useState(null);
  const [message, updateMessage] = useState('');
+ const [changeImage, updatechangeImage] = useState(false);
 
+ useEffect(() => {
+  //check if user is logged in
+  firebase.getUserState().then(function (user) {
+   if (user) {
+    //call function
+    getUserInfo();
+   } else {
+    //upadate state if user is not signed in
+    updateMessage('Log in to view your profile');
 
+    //wait, then redirect to home 
+    setTimeout(function () {
+     props.history.replace('/');
+    }, 1500);
+
+   }
+  })
+ }, [value]);
+
+ useEffect(() => {
+  //if noScroll class is on body element, remove
+  if (document.body.classList.contains('noScroll')) {
+   document.body.classList.remove('noScroll');
+  }
+ }, []);
+
+ //log user out
+ const logout = () => {
+  firebase.logout();
+  //redirect back to home
+  props.history.replace('/');
+ }
+
+ //get user information from firebase
  async function getUserInfo() {
 
   //get saved user details
   const user = await firebase.getUserInfo()
    .catch(function (err) {
-    console.log('error dey o')
+    //update state
+    updateMessage(err);
    });
 
 
@@ -53,44 +92,24 @@ const Profile = (props) => {
   }
  }
 
- useEffect(() => {
-  //check if user is logged in
-  firebase.getUserState().then(function (user) {
-   if (user) {
+ const changePicture = (e) => {
+  if (e.target.files) {
+   //update state
+   updatechangeImage(true);
+   firebase.updateUserPicture(userId, e.target.files[0]).then(function () {
+    //update state;
+    updatechangeImage(false);
+   }).catch(function (error) {
     //update state
-    updateEmail(user.email);
-    //call function
-    getUserInfo();
-   } else {
-    //upadate state if user is not signed in
-    updateMessage('Log in to view your profile');
-
-    //wait, then redirect to home 
-    setTimeout(function () {
-     props.history.replace('/');
-    }, 1500);
-
-   }
-  })
-
- }, []);
-
- useEffect(() => {
-  //if noScroll class is on body element, remove
-  if (document.body.classList.contains('noScroll')) {
-   document.body.classList.remove('noScroll');
+    updatechangeImage(false);
+   });
   }
- }, []);
 
- //log user out
- const logout = () => {
-  firebase.logout();
-  //redirect back to home
-  props.history.replace('/');
  }
 
  let userInfo,
-  messagePopup;
+  messagePopup,
+  imageSpinner;
 
  if (value && label) {
   userInfo = value.map((val, index) => {
@@ -105,6 +124,7 @@ const Profile = (props) => {
   })
  }
 
+ //show popup message if user is not signed in
  if (message) {
   messagePopup = (
    <MessagePopup
@@ -112,9 +132,19 @@ const Profile = (props) => {
   )
  }
 
+ //spinner shows when uploading a new picture
+ if (changeImage) {
+  imageSpinner = (
+   <SpinnerBackdrop>
+    <Spinner />
+   </SpinnerBackdrop>
+  )
+ }
+
  return (
   <Fragment>
    {messagePopup}
+   {imageSpinner}
    <div className="profile">
     <nav className="header__nav">
      <a href="#" className="header__nav-logo">
@@ -133,15 +163,20 @@ const Profile = (props) => {
      <div className="profile__details-pic">
       <img src={imageLink} alt="user_pic" />
      </div>
+     <div className="change-pic">
+      <label className="file-label"> Change Picture
+    <input
+        type="file"
+        onChange={changePicture} />
+      </label>
+     </div>
      <div className="profile__user">
       {userInfo}
-      <div className="form-group">
-       <button
-        onClick={props.toggleSignupPopup}>Edit</button>
-      </div>
      </div>
     </div>
    </div>
+   <UpdateProfile
+    id={userId} />
   </Fragment>
  )
 }

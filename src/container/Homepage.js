@@ -1,6 +1,6 @@
 import React, { Fragment, Component } from 'react'
 import firebase from '../config/fbConfig';
-import { withRouter, Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import Header from '../components/sections/Header';
 import About from '../components/sections/About';
 import Backdrop from '../UI/Popup/Backdrop';

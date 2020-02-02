@@ -1,11 +1,10 @@
 import React, { Fragment } from 'react';
-import Backdrop from '../Popup/Backdrop';
+import SpinnerBackdrop from '../Popup/SpinnerBackdrop';
 
 const Spinner = (props) => {
  return (
   <Fragment>
-   <Backdrop
-    backdropClosePopup={props.errorClosePopup}>
+   <SpinnerBackdrop>
     <div className="loader">
      <div className="sk-cube-grid">
       <div className="sk-cube sk-cube1"></div>
@@ -19,7 +18,7 @@ const Spinner = (props) => {
       <div className="sk-cube sk-cube9"></div>
      </div>
     </div>
-   </Backdrop>
+   </SpinnerBackdrop>
   </Fragment>
  )
 }

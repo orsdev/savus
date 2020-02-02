@@ -5,13 +5,13 @@ import "firebase/firebase-storage";
 
 
 const config = {
- apiKey: "AIzaSyBlkBa4RPp7HmaderBNl8N_UK_25pmilb8",
- authDomain: "savus-83fa1.firebaseapp.com",
- databaseURL: "https://savus-83fa1.firebaseio.com",
- projectId: "savus-83fa1",
- storageBucket: "savus-83fa1.appspot.com",
- messagingSenderId: "651325845589",
- appId: "1:651325845589:web:4e9321a56de720ea7264dc"
+ apiKey: "AIzaSyDXkMUQGBmeFs-aA_a5f0GNQ8vEPfoBT9E",
+ authDomain: "savus-5386a.firebaseapp.com",
+ databaseURL: "https://savus-5386a.firebaseio.com",
+ projectId: "savus-5386a",
+ storageBucket: "savus-5386a.appspot.com",
+ messagingSenderId: "922344981204",
+ appId: "1:922344981204:web:87748cda41af5c54627141"
 };
 
 
@@ -70,8 +70,11 @@ class Firebase {
 
   }
 
+  //get current user id
+  const uid = await this.auth.currentUser.uid;
+
   const firestoreInfo = await firebase.firestore()
-   .collection('user').add(data)
+   .collection('user').doc(uid).set(data)
    .catch((error) => {
     return error;
    });
@@ -80,31 +83,162 @@ class Firebase {
 
  }
 
+ async updateUserPicture(dataId, userPicture) {
+  if (userPicture.name) {
+
+   const storageRef = firebase.storage().ref();
+   const storageChild = storageRef.child(userPicture.name);
+   const image = await storageChild.put(userPicture);
+   const downloadUrl = await storageChild.getDownloadURL();
+   const imageRef = image.ref.location.path;
+
+   const data = {
+    media: {
+     picture: downloadUrl,
+     imageRef: imageRef,
+    }
+   }
+
+   const updateData = await firebase.firestore()
+    .collection('user')
+    .doc(dataId).set(data, { merge: true });
+
+   return updateData;
+  }
+
+ }
+
+ //update phone number
+ async updatePhone(dataId, phone) {
+
+  const data = {
+   Phone: phone
+  }
+
+  const updateData = await firebase.firestore()
+   .collection('user')
+   .doc(dataId).set(data, { merge: true });
+
+  return updateData;
+ }
+
+ //update address
+ async updateAddress(dataId, address) {
+
+  const data = {
+   Address: address
+  }
+
+  const updateData = await firebase.firestore()
+   .collection('user')
+   .doc(dataId).set(data, { merge: true });
+
+  return updateData;
+ }
+
+ //update date of birth
+ async updateDob(dataId, dob) {
+
+  const data = {
+   DOB: dob
+  }
+
+  const updateData = await firebase.firestore()
+   .collection('user')
+   .doc(dataId).set(data, { merge: true });
+
+  return updateData;
+ }
+
+ //update first security question
+ async updateSecurityOne(dataId, secOne) {
+
+  const data = {
+   ['Childhood Nickname']: secOne
+  }
+
+  const updateData = await firebase.firestore()
+   .collection('user')
+   .doc(dataId).set(data, { merge: true });
+
+  return updateData;
+ }
+
+ //update second security question
+ async updateSecurityTwo(dataId, secTwo) {
+
+  const data = {
+   ['Best Friend Middle Name']: secTwo
+  }
+
+  const updateData = await firebase.firestore()
+   .collection('user')
+   .doc(dataId).set(data, { merge: true });
+
+  return updateData;
+ }
+
+ //update third security question
+ async updateSecurityThree(dataId, secThree) {
+
+  const data = {
+   ['Favorite Song Title']: secThree
+  }
+
+  const updateData = await firebase.firestore()
+   .collection('user')
+   .doc(dataId).set(data, { merge: true });
+
+  return updateData;
+ }
+
+ //update user email address
+ async emailUpdate(dataId, email) {
+
+  const user = this.auth.currentUser;
+
+  user.updateEmail(email)
+   .then(function () {
+    const data = {
+     Email: email
+    }
+
+    //update email in database
+    firebase.firestore()
+     .collection('user')
+     .doc(dataId).set(data, { merge: true });
+
+   }).catch(function (err) {
+    alert('Logout and re-login to change email address');
+   })
+ }
+
+
  async getUserInfo() {
   let userArray = [];
 
-  const user = await firebase.firestore().collection('user').get();
+  //get current user id
+  const uid = await this.auth.currentUser.uid;
 
-  user.forEach(doc => {
-   userArray.push({ id: doc.id, data: doc.data() });
-  });
+  await firebase.firestore().collection('user').doc(uid).get().
+
+   then(function (doc) {
+    if (doc.exists) {
+     userArray.push({ id: doc.id, data: doc.data() });
+    } else {
+     alert('document not found!');
+    }
+   }).catch(function (error) {
+    alert("Error getting document:", error);
+   });
 
   return userArray;
  }
 
- async getUser(userId) {
-
-  const user = await firebase.firestore().collection('user').doc(userId).get();
-
-  const userData = user.data();
-
-  return userData;
- }
 
  getCurrentUsername() {
   return this.auth.currentUser;
  }
-
 }
 
 

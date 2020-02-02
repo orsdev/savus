@@ -7,9 +7,20 @@
 @import "components/signupPopup";
 @import "components/profile";
 @import "components/spinner";
+@import "components/updateProfile";
 @import "components/responsive";
 
 .error-message {
+  color: red;
+  margin-top: -25px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-align: left;
+  margin-left: 25px;
+}
+
+.file-error {
+  display: none;
   color: red;
   margin-top: -25px;
   font-weight: bold;

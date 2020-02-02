@@ -25,6 +25,14 @@
   overflow: scroll;
 }
 
+.spinnerbackdrop {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  z-index: 5;
+  background-color: rgba(41, 48, 59, 0.55);
+}
+
 .close {
   position: absolute;
   top: 2px;
@@ -275,6 +283,13 @@
   padding-bottom: 15px;
   margin-bottom: 30px;
 }
+.signup-container form label {
+  display: inline-block;
+  font-weight: bold;
+  padding: 10px 0;
+  width: 90% !important;
+  font-size: 1.2rem;
+}
 .signup-container form input:not([type=submit]) {
   border: none;
   border-bottom: 1px solid black;
@@ -347,6 +362,7 @@
 .profile__details-pic img {
   width: 210px;
   height: 210px;
+  object-fit: cover;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -388,6 +404,21 @@
 .profile__user button:hover {
   color: white;
   background: #07244e;
+}
+
+.change-pic {
+  text-align: center;
+  margin-top: 20px;
+}
+.change-pic .file-label {
+  padding: 10px;
+  display: inline-block;
+  background: red;
+  color: #fff;
+  margin: auto;
+}
+.change-pic input[type=file] {
+  display: none;
 }
 
 .loader {
@@ -486,6 +517,72 @@
     transform: scale3D(0, 0, 1);
   }
 }
+.update-container {
+  width: 450px;
+  margin: auto;
+  margin-top: 20px;
+}
+.update-container-header {
+  color: white;
+  background: red;
+  padding: 10px 5px;
+  text-align: center;
+}
+.update-container-header h3 {
+  margin-top: 15px;
+}
+.update-container form {
+  background: white;
+  text-align: center;
+  padding: 2px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+}
+.update-container form label {
+  padding-bottom: 35px;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.update-container form input:not([type=submit]) {
+  border: none;
+  border-bottom: 1px solid black;
+  height: 50px;
+  width: 90%;
+  padding: 5px 9px;
+  margin-bottom: 30px;
+}
+.update-container form input:not([type=submit]):focus {
+  outline: none;
+  box-shadow: none;
+  background: rgba(0, 0, 0, 0.1);
+}
+.update-container form input:not([type=submit]):hover::-webkit-input-placeholder {
+  padding-left: 2px;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+.update-container form input[type=submit] {
+  width: 100%;
+  color: white;
+  padding: 15px 5px;
+  font-size: 1.4rem;
+  background: #051937;
+}
+.update-container form input[type=submit]:active {
+  outline: none;
+}
+.update-container form input[type=submit]:hover {
+  background: #07244e;
+}
+.update-container .security h4 {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
 @media screen and (max-width: 1050px) {
   .about {
     padding-right: 10px;
@@ -526,7 +623,8 @@
 }
 @media screen and (max-width: 500px) {
   .login-container,
-.signup-container {
+.signup-container,
+.update-container {
     width: 95% !important;
   }
 
@@ -550,6 +648,16 @@
   }
 }
 .error-message {
+  color: red;
+  margin-top: -25px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-align: left;
+  margin-left: 25px;
+}
+
+.file-error {
+  display: none;
   color: red;
   margin-top: -25px;
   font-weight: bold;

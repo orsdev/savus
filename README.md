@@ -9,3 +9,7 @@ A react webapp for storing personal informations
 - Sass
 - yup & formik - for form validation
 - react-router-dom
+
+## Preview Link
+
+https://savus-5386a.firebaseapp.com/
